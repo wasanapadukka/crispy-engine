@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> guided </title>
+    <link rel="stylesheet" href="guided.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="topnav">
+            <a class="active" href="home.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <div class="dropdown">
+                <a href="#content" class="dropbtn">Content</a>
+                <div class="dropdown-content">
+                    <a href="guided.html">Wired / guided</a>
+                    <a href="twist.html">- Twisted Pair Cable</a>
+                    <a href="coaxial.html">- Coaxial Cable</a>
+                    <a href="power.html">- Power Lines</a>
+                    <a href="fiber.html">- Fiber Optics</a>
+                    <a href="unguided.html">Wireless  / Unguided</a>
+                    <a href="radio.html">- Radio Tansmission</a>
+                    <a href="micro.html">- Microwave Transmission</a>
+                    <a href="infrared.html">- Infrared Transmission</a>
+                    <a href="light.html">- Light Transmission</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="banner4">
+        <div class="body">
+            <h1>Wired / Guided</h1>
+            <h2>Transmission Media</h2>
+            <br>
+            <p> Guided transmission media are also called bounded media or wired media. They comprise cables or wires through which data is transmitted. They are called guided since they provide a physical conduit from the sender device to the receiver device.
+                The signal traveling through these media are bounded by the physical limits of the medium.
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5 style="text-align:center">The Most Popular Guided Media</h5>
+
+
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img src="coaxial.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="fiber.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="power.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="twisted.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="coaxial.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="fiber.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="power.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="twisted.jpg" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class="column">
+                    <img class="demo cursor" src="coaxial.jpg" style="width:100%" onclick="currentSlide(1)" alt="Coaxial cable">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="fiber.jpg" style="width:100%" onclick="currentSlide(2)" alt="Fiber optics">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="power.jpg" style="width:100%" onclick="currentSlide(3)" alt="Power lines">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="twisted.jpg" style="width:100%" onclick="currentSlide(4)" alt="Twisted pair cable">
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+
+</html>

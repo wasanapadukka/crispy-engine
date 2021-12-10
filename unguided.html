@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> unguided </title>
+    <link rel="stylesheet" href="unguided.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="topnav">
+            <a class="active" href="home.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <div class="dropdown">
+                <a href="#content" class="dropbtn">Content</a>
+                <div class="dropdown-content">
+                    <a href="guided.html">Wired / guided</a>
+                    <a href="twist.html">- Twisted Pair Cable</a>
+                    <a href="coaxial.html">- Coaxial Cable</a>
+                    <a href="power.html">- Power Lines</a>
+                    <a href="fiber.html">- Fiber Optics</a>
+                    <a href="unguided.html">Wireless  / Unguided</a>
+                    <a href="radio.html">- Radio Tansmission</a>
+                    <a href="micro.html">- Microwave Transmission</a>
+                    <a href="infrared.html">- Infrared Transmission</a>
+                    <a href="light.html">- Light Transmission</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="banner5">
+        <div class="body">
+            <h1>Wireless / Unguided</h1>
+            <h2>Transmission Media</h2>
+            <p> Wireless transmission is a form of unguided media. Wireless communication involves no physical link established between two or more devices, communicating wirelessly. Wireless signals are spread over in the air and are received and interpreted
+                by appropriate antennas. When an antenna is attached to electrical circuit of a computer or wireless device, it converts the digital data into wireless signals and spread all over within its frequency range. The receptor on the other end
+                receives these signals and converts them back to digital data.
+                <br>
+                <br>A little part of electromagnetic spectrum can be used for wireless transmission.
+                <br><img src="unguided.jpg" style="width:25%" class="image">
+
+                <br>
+                <h6 style="text-align:center">The Most Popular Unguided transmissions</h6>
+
+
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img src="radio.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="infrared.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="microwave.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="light.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="radio.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="infrared.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="microwave.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="light.jpg" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class="column">
+                    <img class="demo cursor" src="radio.jpg" style="width:100%" onclick="currentSlide(1)" alt="Radio Tansmission">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="infrared.jpg" style="width:100%" onclick="currentSlide(2)" alt="Infrared Transmission">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="microwave.jpg" style="width:100%" onclick="currentSlide(3)" alt="Microwave Transmission">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="light.jpg" style="width:100%" onclick="currentSlide(4)" alt="Light Transmission">
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+
+</html>
